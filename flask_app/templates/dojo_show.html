@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<title>{{ dojo.name }}</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="my-4">{{ dojo.name }}</h1>
+		<a href="/dojos" class="btn btn-secondary mb-4">Home</a>
+		<a href="/dojos/{{ dojo.id }}/ninjas" class="btn btn-primary mb-4">Add Ninja</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ninja in ninjas %}
+				<tr>
+					<td>{{ ninja.id }}</td>
+					<td>{{ ninja.first_name }}</td>
+					<td>{{ ninja.last_name }}</td>
+					<td>{{ ninja.age }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

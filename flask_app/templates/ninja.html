@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<title>Add Ninja</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="my-4">Add Ninja to {{ dojo.name }}</h1>
+		<a href="/dojos/{{ dojo.id }}" class="mb-4">Back</a>
+		<form method="post">
+			<div class="form-group">
+				<label for="first_name">First Name:</label>
+				<input type="text" class="form-control" name="first_name" id="first_name">
+			</div>
+			<div class="form-group">
+				<label for="last_name">Last Name:</label>
+				<input type="text" class="form-control" name="last_name" id="last_name">
+			</div>
+			<div class="form-group">
+				<label for="age">Age:</label>
+				<input type="number" class="form-control" name="age" id="age">
+			</div>
+			<div class="form-group">
+				<label for="dojo">Dojo:</label>
+				<select class="form-control" name="dojo" id="dojo">
+					{% for d in dojos %}
+					<option value="{{ d.id }}" {% if d.id == dojo.id %}selected{% endif %}>{{ d.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</body>
+</html>
